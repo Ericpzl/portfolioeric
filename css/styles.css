@@ -64,7 +64,33 @@ color: #000000;
 
 }
 
+body {
+  font-family: Arial, sans-serif;
+}
 
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px; /* Espacio entre los campos */
+  box-sizing: border-box;
+}
+
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
 
 .titulosec {
   font-weight: 100;
