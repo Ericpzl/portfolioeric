@@ -17,10 +17,6 @@
 
 
 
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
@@ -41,8 +37,16 @@ html {
 
 }
 
-head {}
+head {
 
+
+
+}
+.arriba{
+text-decoration: none;
+color: #000000;
+
+}
 .titulo {
   font-size: 60px;
   color: black;
@@ -60,17 +64,117 @@ head {}
 
 }
 
+
+
 .titulosec {
   font-weight: 100;
   font-size: 45px;
 
+
+
+
 }
+
+.imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+img{
+
+  height: 85px;
+
+
+}
+.imagenes img {
+  margin: 10px; 
+}
+
+
 
 
 body {
 
 
   font-weight: 100;
+
+  button {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #000000;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+ 
+
+
 }
 
 .box {
@@ -100,22 +204,44 @@ body p {
 
 }
 
+
+
+.proyectos {
+  margin-top: 40px;
+  margin-bottom: auto;
+  text-align: center;
+  border: 4px solid black;
+  box-sizing: content-box;
+  width: 100%;
+  box-shadow: 10px 5px 5px black;
+
+
+  
+text-decoration: none;
+
+}
+.titulosec2{
+
+
+  font-weight: 100;
+  font-size: 45px;
+
+}
+
+
+@keyframes preloader {
+  100% { transform: scale(2); }
+}
+
+
 .titulo2 {
   font-weight: 100;
   font-size: 45px;
 
 
 }
-
 body.trabajos p {
   font-size: 1.2rem;
-}
-
-img {
-  padding: 10px;
-
-  height: 90px;
-  width: 90px;
 }
 
 header {
@@ -125,33 +251,74 @@ header {
   z-index: 100;
 }
 
-nav {
-  float: left;
-}
-
-nav ul {
-  list-style: none;
-  overflow: hidden;
-}
-
-nav ul li {
-  float: left;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-}
-
-nav ul li a {
-  padding: 6px;
-  margin: 6px;
-  display: block;
+.nav-bg {
+  background-color: #F6DA0A;
   padding: 10px;
-  color: black;
-  text-decoration: none;
-  border: 1px solid black
 }
 
-nav ul li:hover {
-  background: #eca023;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  margin: 5px 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #F6DA0A;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #28a745; 
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #000000;
+      width: 100%;
+      text-align: center;
+  }
+
+  .nav-list.show {
+      display: flex;
+  }
+
+  .nav-list li {
+      margin: 10px 0;
+  }
+
+  .menu-btn {
+      display: flex;
+  }
 }
 
 .cajasug {
@@ -164,7 +331,10 @@ nav ul li:hover {
   box-shadow: 10px 5px 5px black;
 
 }
-
+.github{
+  text-decoration: none;
+  color: #000000;
+}
 .titulo3 {
   font-weight: 100;
   font-size: 45px;
@@ -174,61 +344,6 @@ nav ul li:hover {
   color: #eca023;
 
 }
-.button{
-  font-family: inherit;
-  font-size: 20px;
-  background: royalblue;
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
-
-}
-
-button span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
-}
-
-button svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
-}
-
-button:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
-
-button:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
-}
-
-button:hover span {
-  transform: translateX(5em);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-@keyframes fly-1 {
-  from {
-    transform: translateY(0.1em);
-  }
-
-  to {
-    transform: translateY(-0.1em);
-  }
-}
-
 
 
 @media (min-width: 1440px) {
@@ -237,62 +352,137 @@ button:active {
   body {
 
     
-    .boton{
-      font-family: inherit;
-      font-size: 20px;
-      background: royalblue;
-      color: white;
-      padding: 0.7em 1em;
-      padding-left: 0.9em;
-      display: flex;
-      align-items: center;
-      border: none;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.2s;
-      cursor: pointer;
-
-    }
     
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     grid-column: 1/2;
-  
+
+
+
+
+    button.arriba{
+
+      color: #000000;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+    
+
+    .titulo {
+      font-size: 60px;
+      color: rgb(0, 0, 0);
+      margin: 0;
+      text-align: center;
+      
+    }
+
+
+
+
+
+  /*
+
+En este caso el efecto producido al pulsar el boton fue inspirado en una pagina web que ofrece diseños para paginas,
+ igualmente ha sido adaptado a mis gustos para mantener la estetica ideal 
+
+*/
+    button {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 7px;
+      border: 1px solid rgb(61, 106, 255);
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: transparent;
+      color: #fff;
+      overflow: hidden;
+      box-shadow: 0 0 0 0 transparent;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+    }
+    
+    button:hover {
+      background: rgb(61, 106, 255);
+      box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+    }
+    
+    button:hover::before {
+      -webkit-animation: sh02 0.5s 0s linear;
+      -moz-animation: sh02 0.5s 0s linear;
+      animation: sh02 0.5s 0s linear;
+    }
+    
+    button::before {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 86%;
+      position: absolute;
+      top: 7%;
+      left: 0%;
+      opacity: 0;
+      background: #000000;
+      box-shadow: 0 0 50px 30px #000000;
+      -webkit-transform: skewX(-20deg);
+      -moz-transform: skewX(-20deg);
+      -ms-transform: skewX(-20deg);
+      -o-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+    }
+    
+.imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+img{
+
+  height: 85px;
+
+
+}
+.imagenes img {
+  margin: 1px; 
+}
+
 
     
-      .box{
-        margin: 1.5rem;
-        left: 1.5rem;
-       
-       box-shadow:0px 10px 5px;
-
+    @keyframes sh02 {
+      from {
+        opacity: 0;
+        left: 0%;
       }
-      .trabajos{
-       
-        box-shadow:0px 10px 5px;
-        margin: 1.5rem;
-
+    
+      50% {
+        opacity: 1;
       }
-
-
-      .cajasug{
-
-        padding-right: 1rem;
-        margin: 1.5rem;
-        box-shadow: 10px 10px 5px;
-        
+    
+      to {
+        opacity: 0;
+        left: 100%;
       }
-      .img{
-        
-       
+    }
+    
+    button:active {
+      box-shadow: 0 0 0 0 transparent;
+      -webkit-transition: box-shadow 0.2s ease-in;
+      -moz-transition: box-shadow 0.2s ease-in;
+      transition: box-shadow 0.2s ease-in;
+    }
+    
+    
+    
       }
+      
 
-      * {
-        -webkit-transition: all .9s;
-        -webkit-animation-name: myfading;
-        -webkit-animation-duration: .15s;
-
-  }
+      
   
   @-webkit-keyframes myfading {
         from {
@@ -305,11 +495,115 @@ button:active {
   }
      
 
+  @media (min-width: 1440px) {
+    body {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1.5rem; 
+      margin: 1.5rem;
+    }
+  
+  
+    button {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 7px;
+      border: 1px solid rgb(0, 0, 0);
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: transparent;
+      color: #000000;
+      overflow: hidden;
+      box-shadow: 0 0 0 0 transparent;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+    }
+    
+    button:hover {
+      background: rgb(61, 106, 255);
+      box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+    }
+    
+    button:hover::before {
+      -webkit-animation: sh02 0.5s 0s linear;
+      -moz-animation: sh02 0.5s 0s linear;
+      animation: sh02 0.5s 0s linear;
+    }
+    
+    button::before {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 86%;
+      position: absolute;
+      top: 7%;
+      left: 0%;
+      opacity: 0;
+      background: #000000;
+      box-shadow: 0 0 50px 30px #000000;
+      -webkit-transform: skewX(-20deg);
+      -moz-transform: skewX(-20deg);
+      -ms-transform: skewX(-20deg);
+      -o-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+    }
+    .proyectos,
+    .cajasug,
+    .trabajos,
+    .box {
+      width: 100%;
+      box-shadow: 10px 10px 5px;
+      margin: 1rem;
+    }
+  
+    .titulo {
+      text-align: center;
+      margin: 0;
+      padding: 1rem;
+    }
 
 
+    nav {
+      text-align: center;
+    }
 
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
+    nav li {
+      display: inline-block;
+      margin-right: 15px;
+    }
 
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+
+    
+.arriba{
+  text-decoration: none;
+  color: #000000;
+  
   }
   
+
+button.arriba{
+
+  color: #000000;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+  }
 }
