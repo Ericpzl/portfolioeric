@@ -35,3 +35,23 @@ function validateForm() {
   alert("Formulario enviado correctamente.");
   return true;
 }
+/* Este menú hamburguesa fue hecho con bastante ayuda porque a la hora de intentarlo daba muchos fallos */
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('proyectos.json')
+      .then(response => response.json())
+      .then(proyectos => {
+          const proyectosContainer = document.querySelector('.proyectos2');
+          proyectos.forEach(proyecto => {
+              let proyectoElement = document.createElement('div');
+              proyectoElement.className = 'proyecto-item';
+              proyectoElement.innerHTML = `
+                  <img src="${proyecto.image}" alt="Imagen del ${proyecto.name}" style="width: 100%; height: auto;"> <!-- Imagen del proyecto -->
+                  <h3>${proyecto.name}</h3>
+                  <p>${proyecto.description}</p>
+                  <a href="${proyecto.url}" target="_blank" style="color: black;">Ver Proyecto</a>
+              `;
+              proyectosContainer.appendChild(proyectoElement);
+          });
+      })
+      .catch(error => console.error('Error al cargar los proyectos:', error));
+});
